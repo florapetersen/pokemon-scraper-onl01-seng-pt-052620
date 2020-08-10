@@ -7,7 +7,7 @@ class Pokemon
     @name = name
     @type = type
     @db = db
-    @@all << self 
+    @@all << self
   end
 
   def self.save(name, type, db)
@@ -19,7 +19,7 @@ class Pokemon
 
   def self.find(id, db)
     sql = <<-SQL
-      SELECT * FROM pokemon WHERE id = ?
+      SELECT * FROM pokemon (name, type) WHERE id = ?
     SQL
     new_pokemon = db.execute(sql, id)
     Pokemon.new(id, new_pokemon[1], new_pokemon[2], db)
