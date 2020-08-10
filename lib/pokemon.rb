@@ -21,7 +21,7 @@ class Pokemon
     #sql = <<-SQL
       #SELECT * FROM pokemon WHERE id = ?
     #SQL
-    new_pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?");
+    pokemon = db.execute("SELECT * FROM pokemon WHERE id = ?");
     Pokemon.new(id, new_pokemon[1], new_pokemon[2], db)
   end
 
